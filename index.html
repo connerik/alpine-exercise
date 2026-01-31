@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <header>Selected Name:</header>
+    <div x-data="{
+        names: ['Ike', 'Mario', 'Timothee', 'John', 'Tyler', 'Luigi', 'Scott', 'Jeff', 'Alice', 'Anna'],
+        selectedName: '',
+        pickRandom() {
+            this.selectedName = this.names[Math.floor(Math.random() * this.names.length)];
+        }
+    }" x-init="pickRandom()">
+        <h1 x-text="selectedName"></h1>
+        <button @click="pickRandom()">Select Random Name</button>
+    </div>
+</body>
+</html>
